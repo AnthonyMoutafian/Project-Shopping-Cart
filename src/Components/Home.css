@@ -1,0 +1,156 @@
+.up-menu{
+    background-color: rgb(46, 46, 45);
+    position: sticky;
+    top: 0;
+    min-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.logo{
+    color: rgb(255, 187, 0);
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.links{
+    float: right;
+    margin-right: 5%;
+    margin-top: 1%;
+}
+
+.link{
+    margin-left: 20px;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(255, 187, 0);
+    padding: 10px;
+}
+
+.link:hover{
+    color: white;
+    background-color: rgb(255, 187, 0);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+
+.card{
+    display: inline-block;
+    width: 300px;
+    height: 400px;
+    border: 1px solid black;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 10px;
+    margin: 40px 20px;
+    background-color: white;
+}
+
+.home-product-images{
+    width: 100%;
+    max-height: 200px;
+    display: block;
+    object-fit: cover;
+}
+
+.add-to-cart{
+    background-color: crimson;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.add-to-cart:hover{
+    background-color: rgb(255, 187, 0);
+    color: white;
+    transition: all 0.2s;
+}
+
+.cart-empty-sign-div {
+    margin-left: 36%;
+    margin-top: 16%;
+}
+
+.cart-empty-sign {
+    font-size: 70px;
+}
+
+.adding-or-removing-item-in-cart{
+    display: inline-block;
+    background-color: chartreuse;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.home-product-quantity{
+    display: inline;
+}
+
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .signup-container h2 {
+    margin-bottom: 20px;
+    color: rgb(255, 187, 0);
+    background-color: rgb(46, 46, 45);
+    padding: 15px;
+    border-radius: 20px;
+  }
+  
+  .signup-container input {
+    margin-bottom: 10px;
+    padding: 8px;
+  }
+  
+  .signup-container button {
+    padding: 8px 16px;
+    background-color: rgb(46, 46, 45);
+    color: rgb(255, 187, 0);
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  
+  .signup-container button:hover {
+    background-color: rgb(255, 187, 0);
+    color: white;
+    border-radius: 20px;
+  }
+  
+  .signup-container p {
+    margin-top: 10px;
+  }
+  
+  .signup-container p a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .signup-container p a:hover {
+    text-decoration: underline;
+  }
+  
+
+  .LogOut{
+    color: rgb(255, 187, 0);
+    font-size: 20px;
+    background-color: rgb(46, 46, 45);
+    border: none;
+    padding: 20px;
+    border-radius: 30px;
+    margin-left: 45%;
+    cursor: pointer;
+  }
