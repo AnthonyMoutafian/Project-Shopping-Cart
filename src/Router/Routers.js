@@ -1,9 +1,11 @@
-import { BrowserRouter,Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "../Components/Home";
 import { useEffect, useState } from "react";
 import SignUp from "../Components/SignUp";
 import { Cart } from "../Components/Cart";
 import { data } from "../Components/Data";
+import Header from "../Components/Header";
+import Purchase from "../Components/Purchase";
 
 export default function RouterFunction() {
   const { productItems } = data;
@@ -80,7 +82,9 @@ export default function RouterFunction() {
   };
 
   return (
-    <Routes>
+    <>
+      <Header cartItems={cartItems} handleLoggedOut={handleLoggedOut} />
+      <Routes>
         <Route
           path="/"
           element={loggedIn ? (
@@ -120,6 +124,13 @@ export default function RouterFunction() {
             <SignUp setLoggedIn={handleLoggedIn} />
           )}
         />
+        <Route 
+          path="/purchase"
+          element={
+            <Purchase/>
+          }
+        />
       </Routes>
+    </>
   );
 }

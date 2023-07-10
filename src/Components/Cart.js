@@ -1,9 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
+import { useNavigate } from "react-router";
 
-export const Cart = ({ handleLoggedOut, cartItems, handleRemoveProduct, handleCartItemAdding, handleCartItemRemoving }) => {
+export const Cart = ({setCartItems, cartItems, handleRemoveProduct, handleCartItemAdding, handleCartItemRemoving }) => {
+  
+  const navigate = useNavigate()
+  const [totalPrice, setTotalPrice] = useState(0);
+
+
   useEffect(() => {
     if (cartItems && cartItems.length > 0) {
+      const totalPrice = cartItems.reduce((total, item) => {
+        return total + item.quantity * item.price;
+      }, 0);
+      setTotalPrice(totalPrice);
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
     }
   }, [cartItems]);
@@ -21,6 +31,11 @@ export const Cart = ({ handleLoggedOut, cartItems, handleRemoveProduct, handleCa
   const handleAddOne = (item) => {
     handleCartItemAdding(item);
   };
+
+  const handlePurchase = ()=>{
+    navigate("/purchase")
+    setCartItems([])
+  }
 
   return (
     <>
@@ -40,7 +55,7 @@ export const Cart = ({ handleLoggedOut, cartItems, handleRemoveProduct, handleCa
               </button>
               <hr />
               <div>
-                <button className="add-to-cart" onClick={() => handleRemoveProduct(item)}>
+                <button className="remove-from-cart" onClick={() => handleRemoveProduct(item)}>
                   Remove From Cart
                 </button>
               </div>
@@ -48,7 +63,8 @@ export const Cart = ({ handleLoggedOut, cartItems, handleRemoveProduct, handleCa
           ))}
         </div>
       </div>
-      <button className="LogOut" onClick={handleLoggedOut}>Log Out</button>
+      <div className="total-price">Total: {totalPrice}$</div>
+      <button className="purchase-button" onClick={handlePurchase}>Purchase</button>
     </>
   );
 };

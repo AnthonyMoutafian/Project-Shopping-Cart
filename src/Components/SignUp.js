@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
+
 
 export default function SignUp({ setLoggedIn }) {
   const [name, setName] = useState("");
@@ -17,9 +18,14 @@ export default function SignUp({ setLoggedIn }) {
 
   const handleSignUp = () => {
     if (name && password) {
-      setLoggedIn(true);
-      localStorage.setItem("loggedIn", "true");
-      navigate("/");
+      if(password.length < 8){
+        alert("password can't be shorter than 8 digits")
+      }else{
+        setLoggedIn(true);
+        localStorage.setItem("loggedIn", "true");
+        navigate("/");
+        window.location.reload();
+      }
     } else {
       alert("Please enter your name and password.");
     }
