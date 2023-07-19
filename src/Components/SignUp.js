@@ -27,7 +27,7 @@ export default function SignUp({ setLoggedIn }) {
         window.location.reload();
       }
     } else {
-      alert("Please enter your name and password.");
+      alert("Invalid name or password.");
     }
   };
 
